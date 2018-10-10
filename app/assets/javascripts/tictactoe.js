@@ -140,7 +140,7 @@ function showPreviousGames() {
       board.forEach((index, state) => {
          board.innerHTML = state[index]
        });
-      });
+      };
     }
 
     // for (var i = 0; i < .options.length; i++) {

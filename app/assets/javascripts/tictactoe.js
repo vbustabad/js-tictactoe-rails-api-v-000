@@ -133,13 +133,16 @@ function showPreviousGames() {
     $('td').text(boardValues());
 
     function boardValues() {
-      var board = game.data.attributes.state;
+      var state = game.data.attributes.state;
 
-      var html_td_elements = document.querySelectorAll("td");
+      var board = document.querySelectorAll("td");
       
-      board.forEach(function(value) {
-        html_td_elements.forEach(function(td) {
-          td.push(value);
+      board.forEach((index, square) => {
+         state.push(square);
+       });
+
+      (function(td) {
+        td.innerHTML = state
         })
       });
     }

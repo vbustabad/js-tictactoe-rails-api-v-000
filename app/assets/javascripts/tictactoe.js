@@ -158,7 +158,7 @@ function showPreviousGames() {
     }
 
    };
- }
+ 
 
 function attachListeners(){
 // also need to update the td box with

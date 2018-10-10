@@ -137,22 +137,18 @@ function showPreviousGames() {
 
       var board = document.querySelectorAll("td");
       
-      board.forEach((index, square) => {
-         state.push(square);
+      board.forEach((index, state) => {
+         board.innerHTML = state[index]
        });
-
-      (function(td) {
-        td.innerHTML = state
-        })
       });
     }
 
-    for (var i = 0; i < .options.length; i++) {
-      if (selectObject.options[i].selected) {
-        numberSelected++;
-      }
-    }
-      
+    // for (var i = 0; i < .options.length; i++) {
+    //   if (selectObject.options[i].selected) {
+    //     numberSelected++;
+    //   }
+    // }
+    //   
     debugger;
   
     currentGame = game_id;

@@ -43,6 +43,10 @@ function checkWinner() {
 function resetBoard() {
   $('td').empty();
   turn = 0;
+<<<<<<< HEAD
+=======
+  $('td').empty();
+>>>>>>> 8c981eaec84d1af64eed50b1d602ba26d1e76822
   currentGame = 0;
 }
 

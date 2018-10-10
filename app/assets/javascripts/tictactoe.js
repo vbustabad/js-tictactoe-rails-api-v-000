@@ -157,7 +157,7 @@ function showPreviousGames() {
       setMessage('Tie game.');
     }
 
-   });
+   };
  }
 
 function attachListeners(){

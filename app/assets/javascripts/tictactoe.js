@@ -135,7 +135,7 @@ function showPreviousGames() {
     function boardValues() {
       var board = game.data.attributes.state;
 
-      var html_td_elements = $('td');
+      var html_td_elements = document.querySelectorAll("td");
       
       board.forEach(function(value) {
         html_td_elements.forEach(function(td) {

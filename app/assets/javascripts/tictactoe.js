@@ -136,8 +136,8 @@ function showPreviousGames() {
       (game.data.attributes.state).forEach(function(value) {
         $('td').forEach(function(td) {
           td.push(value);
-        }
-      })
+        })
+      });
     }
       
     debugger;

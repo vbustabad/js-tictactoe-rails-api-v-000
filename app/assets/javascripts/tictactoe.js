@@ -133,7 +133,9 @@ function showPreviousGames() {
     $('td').text(boardValues());
 
     function boardValues() {
-      (game.data.attributes.state).forEach(function(value) {
+      var board = game.data.attributes.state;
+      
+      board.forEach(function(value) {
         $('td').forEach(function(td) {
           td.push(value);
         })

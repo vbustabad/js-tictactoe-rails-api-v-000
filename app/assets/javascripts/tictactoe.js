@@ -143,6 +143,12 @@ function showPreviousGames() {
         })
       });
     }
+
+    for (var i = 0; i < .options.length; i++) {
+      if (selectObject.options[i].selected) {
+        numberSelected++;
+      }
+    }
       
     debugger;
   

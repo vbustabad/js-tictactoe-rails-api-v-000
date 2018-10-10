@@ -141,7 +141,7 @@ function showPreviousGames() {
          board.innerHTML = state[index]
        });
       };
-    }
+    })
 
     // for (var i = 0; i < .options.length; i++) {
     //   if (selectObject.options[i].selected) {

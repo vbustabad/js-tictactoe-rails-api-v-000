@@ -134,9 +134,11 @@ function showPreviousGames() {
 
     function boardValues() {
       var board = game.data.attributes.state;
+
+      var html_td_elements = $('td');
       
       board.forEach(function(value) {
-        $('td').forEach(function(td) {
+        html_td_elements.forEach(function(td) {
           td.push(value);
         })
       });

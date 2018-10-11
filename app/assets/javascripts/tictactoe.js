@@ -130,9 +130,9 @@ function showPreviousGames() {
    $.get(`/games/${game_id}`, (game) => {
      console.log(game.data);
 
-    $('td').text(boardValues());
+    // $('td').text(boardValues());
 
-    function boardValues() {
+    function boardValues(game) {
       var state = game.data.attributes.state;
 
       var board = document.querySelectorAll("td");

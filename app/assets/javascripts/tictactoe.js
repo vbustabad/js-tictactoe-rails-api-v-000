@@ -2,6 +2,7 @@ const WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6],
                     [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
 
 var turn = 0;
+
 var currentGame = 0;
 
 $(document).ready(function() {
@@ -9,7 +10,6 @@ $(document).ready(function() {
 });
 
 var player = () => turn % 2 ? 'O' : 'X'
-
 
 function updateState(squares){
   var token = player();
@@ -21,12 +21,9 @@ function setMessage(msg){
 }
 
 function checkWinner(){
-  // how to check if player wins horizontally, vertically, diagonally
-  // define win combinations'
-  // check for winner and set message and return true if won
-  // console.log("check winner");
 
   var board = {};
+  
   var winner = false;
 
   var input = (index, square) => (
@@ -47,13 +44,6 @@ function checkWinner(){
     return winner;
 }
 
-// function doTurn(){
-//   // player plays his turn, updateState for him and increase count by 1
-//   // check if winner then save game and reset board
-//   // else check if turn is 9 set message, save the game and  reset the board
-//
-// }
-
 function doTurn(clicked_square) {
   updateState(clicked_square);
   turn++;
@@ -70,23 +60,21 @@ function doTurn(clicked_square) {
 
 
 function resetBoard(){
-  // console.log("In resetBoard");
   $('td').empty();
   turn = 0;
   currentGame = 0;
 }
 
 function saveGame(){
-console.log("In saveGame");
-// how to save data , change each box ie td with X or O
 
-var state = [];
+  var state = [];
 
-$('td').text((index, square) => {
-   state.push(square);
- });
+  $('td').text((index, square) => {
+     state.push(square);
+   });
 
-game_data = {state: state};
+  game_data = {state: state};
+
   if(currentGame){
     $.ajax({
         type: 'PATCH',
@@ -95,16 +83,8 @@ game_data = {state: state};
       });
   }else{
         $.post('/games', game_data, (game) => {
-
             currentGame = game.data.id;
-            // $('#games').append(`
-            //   <button game-id = <%= ${game.data.id} %> >
-            //     ${game.data.id}
-            //   </button>
-            //   </br>`
-            // );
         });
-
       }
 }
 
@@ -125,30 +105,22 @@ function showPreviousGames() {
  }
 
  function reloadGame(game_id){
-   console.log("reload game");
+   console.log("In reloadGame.");
 
    $.get(`/games/${game_id}`, (game) => {
      console.log(game.data);
-
-    // $('td').text(boardValues());
 
     function boardValues(game) {
       var state = game.data.attributes.state;
 
       var board = document.querySelectorAll("td");
       
-      board.forEach((index, square) => {
+      board.forEach(function(square) => {
          square.innerHTML = state[index]
        });
       };
     })
-
-    // for (var i = 0; i < .options.length; i++) {
-    //   if (selectObject.options[i].selected) {
-    //     numberSelected++;
-    //   }
-    // }
-    //   
+   
     debugger;
   
     currentGame = game_id;
@@ -157,13 +129,10 @@ function showPreviousGames() {
       setMessage('Tie game.');
     }
 
-   };
- 
+   }; 
 
 function attachListeners(){
-// also need to update the td box with
  $('td').on('click', function() {
-    // check if winner else turn the board
     if(!$.text(this) && !checkWinner()){
       doTurn(this);
     }

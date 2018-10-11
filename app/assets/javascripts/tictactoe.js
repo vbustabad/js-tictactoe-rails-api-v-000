@@ -137,8 +137,8 @@ function showPreviousGames() {
 
       var board = document.querySelectorAll("td");
       
-      board.forEach((index, state) => {
-         board.innerHTML = state[index]
+      board.forEach((index, square) => {
+         square.innerHTML = state[index]
        });
       };
     })

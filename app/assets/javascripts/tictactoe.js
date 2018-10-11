@@ -125,7 +125,7 @@ function showPreviousGames() {
       // };
     })
    
-    debugger;
+    // debugger;
   
     currentGame = game_id;
 

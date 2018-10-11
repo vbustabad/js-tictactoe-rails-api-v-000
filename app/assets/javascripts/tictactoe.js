@@ -99,16 +99,14 @@ function showPreviousGames() {
   });
 }
 
- function previousGameButtons(game){
+ function previousGameButtons(game) {
    $('#games').append(`<button id="gameid-${game.id}">${game.id}</button><br>`);
    $(`#gameid-${game.id}`).on('click', () => reloadGame(game.id));
  }
 
- function reloadGame(game_id){
-   console.log("In reloadGame.");
+ function reloadGame(game_id) {
 
    $.get(`/games/${game_id}`, (game) => {
-     console.log(game.data);
 
     function boardValues(game) {
       var state = game.data.attributes.state;
@@ -119,19 +117,8 @@ function showPreviousGames() {
         board[i].innerHTML = state[i];
         turn = board.filter(String).length;
       }
-
-      // for (let index = 0; index < board.length; index++) {
-      //   board[index].innerHTML = state[index];
-      // }
-      
-      // board.forEach(function(square) => {
-      //    square.innerHTML = state[index]
-      //  });
-      // };
     }
    
-    // debugger;
-  
     currentGame = game_id;
 
     if (!checkWinner() && turn === 9) {

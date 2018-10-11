@@ -124,7 +124,6 @@ function showPreviousGames() {
     if (!checkWinner() && turn === 9) {
       setMessage('Tie game.');
     }
-
   }
 }
 

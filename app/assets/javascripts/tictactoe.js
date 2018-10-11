@@ -123,7 +123,7 @@ function showPreviousGames() {
       //    square.innerHTML = state[index]
       //  });
       // };
-    })
+    }
    
     // debugger;
   

@@ -115,9 +115,14 @@ function showPreviousGames() {
 
       var board = document.querySelectorAll("td");
 
-      for (let index = 0; index < board.length; index++) {
-        board[index].innerHTML = state[index];
+      for (let i = 0; i < board.length; i++) {
+        board[i].innerHTML = state[i];
+        turn = board.filter(String).length;
       }
+
+      // for (let index = 0; index < board.length; index++) {
+      //   board[index].innerHTML = state[index];
+      // }
       
       // board.forEach(function(square) => {
       //    square.innerHTML = state[index]

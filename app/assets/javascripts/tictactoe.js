@@ -114,11 +114,15 @@ function showPreviousGames() {
       var state = game.data.attributes.state;
 
       var board = document.querySelectorAll("td");
+
+      for (let index = 0; index < board.length; index++) {
+        board[index].innerHTML = state[index];
+      }
       
-      board.forEach(function(square) => {
-         square.innerHTML = state[index]
-       });
-      };
+      // board.forEach(function(square) => {
+      //    square.innerHTML = state[index]
+      //  });
+      // };
     })
    
     debugger;
